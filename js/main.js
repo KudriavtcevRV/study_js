@@ -1,0 +1,1 @@
+alert('изучил git и githube');
