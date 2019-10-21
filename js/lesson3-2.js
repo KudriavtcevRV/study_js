@@ -40,3 +40,7 @@ let lang2 = lang ? (
   };
   console.log(arr[lang]);
 
+
+var namePerson = "Артём";
+  let Person =  (namePerson === "Артём") ? "Директор" : (namePerson === "Максим") ? "Преподаватель" : "Студент" ;
+console.log( Person ); 
