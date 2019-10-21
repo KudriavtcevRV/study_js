@@ -29,7 +29,7 @@ let budgetMonth = money-question2-question4;
 console.log('доход за месяц, учитывая обязательные расходы: ', budgetMonth);
 
 let mission = 65000;
-mission = parseFloat(Math.ceil(65000 / budgetMonth));
+mission = parseFloat(Math.ceil(mission / budgetMonth));
 console.log('за сколько месяцев будет достигнута цель: ', mission);
 
 let budgetDay = parseFloat(Math.floor(budgetMonth / 30));
