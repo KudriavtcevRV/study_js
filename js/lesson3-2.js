@@ -21,15 +21,13 @@ switch (lang){
 }
 
 // Использование условный тернарный оператор
-let lang2 = lang ? (
-
-  ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
-  
-  ) : (
+let array = [
+  ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+  ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn']
+];
+let lang2 = (lang === "ru") ? array[0] : 
+(lang === "en") ? array[1] : 'Выберите язык ru или en' ;
     
-    ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn']
-    
-    );
   console.log(lang2);
 
 // Использование ассоциативные массивы
@@ -41,6 +39,6 @@ let lang2 = lang ? (
   console.log(arr[lang]);
 
 
-var namePerson = "Артём";
+let namePerson = "Артём";
   let Person =  (namePerson === "Артём") ? "Директор" : (namePerson === "Максим") ? "Преподаватель" : "Студент" ;
 console.log( Person ); 
