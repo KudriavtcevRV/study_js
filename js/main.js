@@ -44,6 +44,7 @@ console.log(res);
   one(two);
 
 
-  function changeTires(){
-    
+  function changeTires(snowTires){
+    /* демонтаж,  разбортовка, забортовка, давление,
+    балансировка, монтаж*/
   }
