@@ -42,3 +42,8 @@ console.log(res);
     console.log('выводим на страницу');
   }
   one(two);
+
+
+  function changeTires(){
+    
+  }
