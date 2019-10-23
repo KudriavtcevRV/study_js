@@ -1,7 +1,7 @@
 function func(x){
   if (typeof x !== 'string') {
     alert('Вы ввели не строку');
-  } else if (typeof x === 'string'){
+  } else {
     console.log(x.trim().substr(0, 30) + '...');
   }
 }
