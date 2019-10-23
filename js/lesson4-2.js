@@ -1,8 +1,11 @@
 function func(x){
   if (typeof x !== 'string') {
     alert('Вы ввели не строку');
-  } else {
+  } else if(x.length > 30){
     console.log(x.trim().substr(0, 30) + '...');
+  } else {
+    console.log(x);
   }
+  
 }
 func('          Если строка более 30 знаков - то после 30го символа ');
