@@ -1,15 +1,7 @@
-function outputMessage() {
+/* function outputMessage() {
 console.log('Hellow world');
 }
 outputMessage();
-
-/* const consoleMessage = function() {
-  console.log('Hellow world');
-};
-consoleMessage();
-
-const alertMessage = new Function('alert("Hi!")');
-alertMessage(); */
 
 const sum = function(a, b) {
   console.log(arguments);
@@ -41,10 +33,31 @@ console.log(res);
   function two(){
     console.log('выводим на страницу');
   }
-  one(two);
+  one(two); */
 
 
-  function changeTires(snowTires){
-    /* демонтаж,  разбортовка, забортовка, давление,
-    балансировка, монтаж*/
+function changeTires(snowTires) {
+
+  /* демонтаж,  разбортовка, забортовка, давление,
+  балансировка, монтаж*/
+  snowTires--;
+  console.log(snowTires);
+  if (snowTires > 0) {
+    changeTires(snowTires);
   }
+}
+changeTires(4);
+
+let n = 0;
+
+// while(n < 5){
+//   console.log(n);
+//   n++;
+// }
+
+for(let i = 0; i < 5; i++){
+  if(i === 3){
+    continue;
+  }
+  console.log(i); 
+}
