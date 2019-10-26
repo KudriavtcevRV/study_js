@@ -43,10 +43,7 @@ function  getExpensesMonth(){
     }
     do {
       x = prompt('Во сколько это обойдется?');
-    } while(isNaN(x) || x === '');
-    if(x === null){
-      break;
-    }
+    } while(isNaN(x) || x === '' || x === null);
     sum += +x;
   }
   return sum;
