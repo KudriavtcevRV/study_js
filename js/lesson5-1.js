@@ -14,7 +14,7 @@ let start = function(){
 };
 start();
 
-/* let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+ let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 // console.log(addExpenses.split());
 let deposit = confirm('Есть ли у вас депозит в банке?');
 
@@ -22,7 +22,7 @@ let showTypeOf = function(data) {
   console.log(data, typeof(data));
 };
 
-showTypeOf(money); */
+showTypeOf(money);
 // console.log(typeof money);
 // console.log(typeof addExpenses);
 // console.log(typeof money); 
