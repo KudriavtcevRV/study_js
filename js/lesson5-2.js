@@ -19,15 +19,13 @@ let n = 100;
 function primeNumbers(){
 for(let i = 2; i <= n; i++){
   isPrime = true;
-  for(let j = 2; j <= i; j++){
-    if( (i % j) === 0 ){
+  for(let j = 2; j < i; j++){
+    if( (i % j) == 0 ){
       isPrime = false;
-      break;
     }
-    if(isPrime === true){
-      console.log(i + ":" + "Простое число" + ",  " + "делиться на " + 1 + " и " + i );
-      break;
-    }
+  }
+  if(isPrime === true){
+    console.log(i + ":" + "Простое число" + ",  " + "делиться на " + 1 + " и " + i );
   }
 }
   }
