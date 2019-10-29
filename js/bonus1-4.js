@@ -1,10 +1,11 @@
 function getRandomNumber(max){
-  let toAsk;
   let randomNumber = Math.floor(Math.random() * Math.floor(max));
   console.log(randomNumber);
+  let toAsk;
   do{
+    
     toAsk = prompt('Угадай число');
-
+    
     if(isNaN(toAsk)){
       alert('Введите число!');
     }
