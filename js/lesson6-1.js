@@ -45,8 +45,6 @@ appData.getExpensesMonth = getExpensesMonth;
 appData.getAccumulatedMonth = getBudget;
 appData.getStatusIncome = getStatusIncome;
 appData.getTargetMonth = getTargetMonth;
-
-console.log(appData);
 /* let showTypeOf = function (data) {
   console.log(data, typeof (data));
 };
@@ -83,12 +81,10 @@ function getBudget() {
   appData.budgetDay = parseFloat(Math.floor(appData.budgetMonth / 30));
 }
 getBudget();
-
-let periodMonth = parseFloat(Math.ceil(appData.mission / appData.getAccumulatedMonth));
-console.log('periodMonth: ', periodMonth);
-
-
-
+/* 
+let periodMonth = parseFloat(Math.ceil(appData.mission /appData.budgetMonth));
+console.log(' За какой период будет достигнута цель (в месяцах): ', periodMonth);
+ */
 function getStatusIncome() {
   if (appData.budgetDay > 800) {
     return ('Высокий доход');
@@ -107,13 +103,17 @@ console.log(getStatusIncome());
 // Подсчитывает за какой период будет достигнута цель, 
 // зная результат месячного накопления и возвращает результат 
 function getTargetMonth() {
-  let y = parseFloat(Math.floor(appData.mission / accumulatedMonth));
+  let y = parseFloat(Math.floor(appData.mission / appData.budgetMonth));
   return y;
 }
 let TargetMonth = getTargetMonth();
-
 if (TargetMonth < 0) {
   console.log('Цель не будет достигнута');
 } else {
-  console.log('Цуль достагнута за: ', TargetMonth);
+  console.log('За какой период будет достигнута цель (в месяцах): ', TargetMonth);
+}
+
+console.log("\n" + "Наша программа включает в себя данные: ");
+for (let key in appData){
+  console.log(key + '  ' + appData[key]);
 }
