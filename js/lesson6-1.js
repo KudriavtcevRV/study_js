@@ -44,8 +44,7 @@ let appData = {
         sum += +appData.expenses[key];
         
       }
-      appData.expensesMonth = getExpensesMonth[sum];
-    return appData.expensesMonth; 
+    return sum; 
   },
   // let ExpensesMonth = getExpensesMonth(question2, question4);
   
@@ -82,6 +81,7 @@ console.log(appData);
 appData.asking();
 appData.getAccumulatedMonth();
 console.log('Расходы за месяц: ' + appData.getExpensesMonth());
+appData.expensesMonth = appData.getExpensesMonth();
 appData.getStatusIncome();
 appData.targetMonth();
 
