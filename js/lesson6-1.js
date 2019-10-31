@@ -24,26 +24,25 @@ let appData = {
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
     for(let i = 0; i < 2; i++){
-      let expenses1;
-      let x;
-      expenses1 = prompt('Введите обязательную статью расходов', "   ");
+      let expenses1 = "";
+      let x = 0;
+      expenses1 = prompt('Введите обязательную статью расходов', "");
       do{
-            x = prompt('Во сколько это обойдется?');
+            x = prompt('Во сколько это обойдется?', '');
           } while (isNaN(x) || x === '' || x === null);
       
           appData.expenses[expenses1] = x;
     }
-    
   }
-
 };
+appData.asking();
 
 appData.budget = money;
 appData.budgetDay = 0;
 appData.budgetMonth = 0;
 appData.expensesMonth = 0;
 appData.getExpensesMonth = getExpensesMonth;
-appData.getAccumulatedMonth = getAccumulatedMonth;
+appData.getAccumulatedMonth = getBudget;
 appData.getStatusIncome = getStatusIncome;
 appData.getTargetMonth = getTargetMonth;
 
@@ -56,32 +55,20 @@ showTypeOf(money);
 showTypeOf(appData.income);
 showTypeOf(appData.deposit); */
 
-
-
 /* функция  getExpensesMonth. 
 Функция возвращает сумму всех расходов за месяц */
 function getExpensesMonth() {
-  let expenses1,
-      expenses2;
   let sum = 0;
-  let x;
-  for (let i = 0; i < 2; i++) {
-    if (i === 0) {
-      expenses1 = prompt('Введите обязательную статью расходов', "Кварплата");
+  for(let key in appData.expenses){
+      sum += +appData.expenses[key];
     }
-    if (i === 1) {
-      expenses2 = prompt('Введите обязательную статью расходов', "Бензин");
-    }
-    do {
-      x = prompt('Во сколько это обойдется?');
-    } while (isNaN(x) || x === '' || x === null);
-    sum += +x;
-  }
   return sum;
+  
 }
-let expensesAmout = getExpensesMonth();
+getExpensesMonth();
+appData.expensesMonth = getExpensesMonth();
 // let ExpensesMonth = getExpensesMonth(question2, question4);
-console.log('Расходы за месяц: ' + expensesAmout);
+console.log('Расходы за месяц: ' + appData.expensesMonth);
 
 /* for(let key in appData){
   console.log('Ключ: ' + key + 'Значение: ' + appData[key]);
@@ -91,17 +78,16 @@ console.log('Расходы за месяц: ' + expensesAmout);
 Функция возвращает Накопления за месяц (Доходы минус расходы)
 Результат сохранить в переменную accumulatedMonth */
 
-function getAccumulatedMonth() {
-  return money - expensesAmout;
+function getBudget() {
+  appData.budgetMonth = money - appData.expensesMonth;
+  appData.budgetDay = parseFloat(Math.floor(appData.budgetMonth / 30));
 }
-let accumulatedMonth = getAccumulatedMonth();
-console.log(accumulatedMonth);
+getBudget();
 
-let periodMonth = parseFloat(Math.ceil(appData.mission / accumulatedMonth));
+let periodMonth = parseFloat(Math.ceil(appData.mission / appData.getAccumulatedMonth));
 console.log('periodMonth: ', periodMonth);
 
-appData.budgetDay = parseFloat(Math.floor(accumulatedMonth / 30));
-console.log('appData.budgetDay: ', appData.budgetDay);
+
 
 function getStatusIncome() {
   if (appData.budgetDay > 800) {
@@ -117,9 +103,9 @@ function getStatusIncome() {
   }
 }
 console.log(getStatusIncome());
-/* функция  getTargetMonth. 
-Подсчитывает за какой период будет достигнута цель, 
-зная результат месячного накопления и возвращает результат */
+//  функция  getTargetMonth. 
+// Подсчитывает за какой период будет достигнута цель, 
+// зная результат месячного накопления и возвращает результат 
 function getTargetMonth() {
   let y = parseFloat(Math.floor(appData.mission / accumulatedMonth));
   return y;
