@@ -42,8 +42,9 @@ let appData = {
     let sum = 0;
     for(let key in appData.expenses){
         sum += +appData.expenses[key];
-        appData.expensesMonth = sum;
+        
       }
+      appData.expensesMonth = getExpensesMonth[sum];
     return appData.expensesMonth; 
   },
   // let ExpensesMonth = getExpensesMonth(question2, question4);
@@ -64,24 +65,25 @@ let appData = {
     } else {
       return ('Что то пошло не так');
     }
+    console.log('Уровень дохода ' + appData.getStatusIncome());
   },
-  getTargetMonth: function getTargetMonth() {
+  targetMonth: function getTargetMonth() {
     let y = parseFloat(Math.floor(appData.mission / appData.budgetMonth));
     if (y < 0) {
       console.log('Цель не будет достигнута');
     } else {
-      console.log('За какой период будет достигнута цель (в месяцах): ', appData.getTargetMonth());
+      console.log('За какой период будет достигнута цель (в месяцах): ', y);
     }
     
   }
 };
 
-// console.log(appData);
+console.log(appData);
 appData.asking();
 appData.getAccumulatedMonth();
 console.log('Расходы за месяц: ' + appData.getExpensesMonth());
-console.log('Уровень дохода ' + appData.getStatusIncome());
-// console.log('За какой период будет достигнута цель (в месяцах): '+ appData.getTargetMonth());
+appData.getStatusIncome();
+appData.targetMonth();
 
 console.log("\n" + "Наша программа включает в себя данные: ");
 for (let key in appData){
