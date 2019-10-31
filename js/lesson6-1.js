@@ -8,6 +8,7 @@ let money,
   };
 
 start();
+
 // объект содержит все переменные которые мы создавали
 let appData = {
   budget: +money,
@@ -49,6 +50,7 @@ let appData = {
   // let ExpensesMonth = getExpensesMonth(question2, question4);
   
   getAccumulatedMonth: function getBudget() {
+    appData.expensesMonth = appData.getExpensesMonth();
     appData.budgetMonth = appData.budget - appData.expensesMonth;
     appData.budgetDay = parseFloat(Math.floor(appData.budgetMonth / 30));
   },
@@ -80,8 +82,9 @@ let appData = {
 console.log(appData);
 appData.asking();
 appData.getAccumulatedMonth();
+appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + appData.getExpensesMonth());
-appData.expensesMonth = appData.getExpensesMonth();
+
 appData.getStatusIncome();
 appData.targetMonth();
 
