@@ -9,7 +9,6 @@ let money,
 
 start();
 
-// объект содержит все переменные которые мы создавали
 let appData = {
   budget: +money,
   income: {},
@@ -25,7 +24,6 @@ let appData = {
   asking: function () {
     let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
     appData.addExpenses = addExpenses.toLowerCase().split(',');
-    // console.log(addExpenses.split());
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
     for(let i = 0; i < 2; i++){
@@ -47,7 +45,6 @@ let appData = {
       }
     return sum; 
   },
-  // let ExpensesMonth = getExpensesMonth(question2, question4);
   
   getAccumulatedMonth: function getBudget() {
     appData.expensesMonth = appData.getExpensesMonth();
@@ -93,40 +90,3 @@ for (let key in appData){
   console.log(key + '  ' + appData[key]);
 }
 
-
-/* appData.budgetDay = 0;
-appData.budgetMonth = 0;
-appData.expensesMonth = 0; */
-// appData.getExpensesMonth = getExpensesMonth;
-// appData.getAccumulatedMonth = getBudget;
-// appData.getStatusIncome = getStatusIncome;
-// appData.getTargetMonth = getTargetMonth;
-/* let showTypeOf = function (data) {
-  console.log(data, typeof (data));
-};
-
-showTypeOf(money);
-showTypeOf(appData.income);
-showTypeOf(appData.deposit); */
-
-/* функция  getExpensesMonth. 
-Функция возвращает сумму всех расходов за месяц */
-
-
-/* for(let key in appData){
-  console.log('Ключ: ' + key + 'Значение: ' + appData[key]);
-}
- */
-/* функция getAccumulatedMonth.
-Функция возвращает Накопления за месяц (Доходы минус расходы)
-Результат сохранить в переменную accumulatedMonth */
-
-
-/* 
-let periodMonth = parseFloat(Math.ceil(appData.mission /appData.budgetMonth));
-console.log(' За какой период будет достигнута цель (в месяцах): ', periodMonth);
- */
-
-//  функция  getTargetMonth. 
-// Подсчитывает за какой период будет достигнута цель, 
-// зная результат месячного накопления и возвращает результат 
