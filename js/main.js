@@ -1,63 +1,64 @@
-/* function outputMessage() {
-console.log('Hellow world');
-}
-outputMessage();
+let wrapBook = document.querySelector('.books'),
+    book = document.querySelectorAll('.book'),
+    list = document.querySelectorAll('ul'),
+    elem2 = list[0].querySelectorAll('li'),
+    elem5 = list[5].querySelectorAll('li'),
+    elem6 = list[2].querySelectorAll('li'),
+    div = document.querySelectorAll('div'),
+    body = document.querySelector('body'),
+    newElea = document.querySelector('newElem'),
+    title = document.querySelectorAll('h2');
+ 
+console.log(list);
+console.log(book);
+console.log(elem2);
+console.log(elem6);
+wrapBook.insertBefore(book[1], book[0]);
+wrapBook.insertBefore(book[4], book[2]);
+wrapBook.insertBefore(book[3], book[2]);
+wrapBook.insertBefore(book[5], book[2]);
 
-const sum = function(a, b) {
-  console.log(arguments);
-  return a + b;
-};
-let res = sum(20, 20, 40, 30, 50, 9, 10, 8);
-console.log(res);
+body.setAttribute('style', 'background-image: url(../image/you-dont-know-js.jpg)');
 
-(function() {
-  console.log('Hello');
-  }());
+title[4].textContent = 'Книга 3. this и Прототипы Объектов';
+title[4].setAttribute('style', 'color: darkkhaki');
 
-  const doNum = function(a, b, callback) {
-    if (typeof a === 'number' && typeof b === 'number'){
-      callback(a, b);
-    }
-  };
-  doNum(5, 10, function(a, b){
-    console.log(a + b);
-  });
-
-  function one(callback){
-    console.log('Делаем запрос на сервер');
-    setTimeout(function(){
-      console.log('Получаем данные от сервера');
-      callback();
-    },1000);
-  }
-  function two(){
-    console.log('выводим на страницу');
-  }
-  one(two); */
+div[6].classList.remove('adv');
+list[0].appendChild(elem2[0]);
+list[0].appendChild(elem2[1]);
+list[0].appendChild(elem2[3]);
+list[0].appendChild(elem2[6]);
+list[0].appendChild(elem2[8]);
+list[0].appendChild(elem2[4]);
+list[0].appendChild(elem2[5]);
+list[0].appendChild(elem2[7]);
+list[0].appendChild(elem2[9]);
+list[0].appendChild(elem2[2]);
+list[0].appendChild(elem2[10]);
 
 
-function changeTires(snowTires) {
 
-  /* демонтаж,  разбортовка, забортовка, давление,
-  балансировка, монтаж*/
-  snowTires--;
-  console.log(snowTires);
-  if (snowTires > 0) {
-    changeTires(snowTires);
-  }
-}
-changeTires(4);
+list[5].appendChild(elem5[0]);
+list[5].appendChild(elem5[1]);
+list[5].appendChild(elem5[9]);
+list[5].appendChild(elem5[3]);
+list[5].appendChild(elem5[4]);
+list[5].appendChild(elem5[2]);
+list[5].appendChild(elem5[6]);
+list[5].appendChild(elem5[7]);
+list[5].appendChild(elem5[5]);
+list[5].appendChild(elem5[8]);
+list[5].appendChild(elem5[10]);
 
-let n = 0;
 
-// while(n < 5){
-//   console.log(n);
-//   n++;
-// }
+let newElem = document.createElement('li');
+newElem.textContent = 'Глава 8: За пределами ES6';
+list[2].appendChild(newElem);
 
-for(let i = 0; i < 5; i++){
-  if(i === 3){
-    continue;
-  }
-  console.log(i); 
-}
+list[2].appendChild(elem6[9]);
+
+
+
+
+
+
