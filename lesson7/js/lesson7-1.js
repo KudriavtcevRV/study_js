@@ -133,3 +133,39 @@ for (let key in appData) {
 }
 appData.getInfoDeposit();
 console.log(appData.percentDeposit, appData.moneyDeposit, appData.calcSavedMoney());
+
+let button = document.querySelector('#start'),
+    income = document.querySelector('.income'),
+    buttonExpensesAdd = income.querySelector('button'),
+    expenses = document.querySelector('.expenses'),
+    buttonIncomeAdd = expenses.querySelector('button'),
+    checkbox = document.querySelector('#deposit-check'),
+    additionalIncome = document.querySelectorAll('.additional_income-item'),
+    value = document.querySelectorAll('[class $= -value]'),
+    sum = document.querySelector('.salary-amount'),
+    nameIncome = document.querySelector('.income-title'),
+    sumIncome = document.querySelector('.income-amount'),
+    nameExpenses = document.querySelector('.expenses-title'),
+    sumExpenses = document.querySelector('.expenses-amount'),
+    additionalExpenses = document.querySelector('.additional_expenses-item'),
+    terget = document.querySelector('.target-amount'),
+    deposirCheckbox = document.querySelector('.deposit-checkmark'),
+    calculationPeriod = document.querySelector('input[type="range"]');
+
+
+console.log(button);
+console.log(buttonExpensesAdd);
+console.log(buttonIncomeAdd);
+console.log(checkbox);
+console.log(additionalIncome);
+console.log(value);
+console.log(sum);
+console.log(nameIncome);
+console.log(sumIncome);
+console.log(nameExpenses);
+console.log(sumExpenses);
+console.log(additionalExpenses);
+console.log(terget);
+console.log(deposirCheckbox);
+console.log(calculationPeriod);
+
