@@ -20,7 +20,7 @@ wrapBook.insertBefore(book[4], book[2]);
 wrapBook.insertBefore(book[3], book[2]);
 wrapBook.insertBefore(book[5], book[2]);
 
-body.setAttribute('style', 'background-image: url(../lesson7-a/image/you-dont-know-js.jpg)');
+body.setAttribute('style', 'background-image: url(./image/you-dont-know-js.jpg)');
 
 title[4].textContent = 'Книга 3. this и Прототипы Объектов';
 title[4].setAttribute('style', 'color: darkkhaki');
