@@ -1,6 +1,7 @@
 'use stricts';
 
 let start = document.querySelector('#start'),
+  cancel = document.querySelector('#cancel'),
   income = document.querySelector('.income'),
   buttonExpensesAdd = income.querySelector('button'),
   expenses = document.querySelector('.expenses'),
@@ -55,10 +56,13 @@ let appData = {
   expensesMonth: 0,
   start: function () {
 
-    if (salaryAmount.value === '') {
-      alert('Ошибка, поле "Месячный доход" должно быть заполенно!');
-      return;
-    }
+    // if (salaryAmount.value === '') {
+    //  start.setAttribute('disabled', true);
+    //   return;
+    // } if(+salaryAmount.value !== '' ){
+    //   start.setAttribute('disabled', false);
+    //   return;
+    // }
     
     appData.budget = +salaryAmount.value;
 
@@ -184,11 +188,6 @@ let appData = {
 
   getTargetMonth: function () {
     return targetAmount.value / appData.budgetMonth;
-    // if (y < 0) {
-    //   console.log('Цель не будет достигнута');
-    // } else {
-    //   console.log('За какой период будет достигнута цель (в месяцах): ', y);
-    // }
   },
 
   getInfoDeposit: function () {
@@ -217,19 +216,24 @@ let appData = {
     
 };
 
-start.addEventListener('click', appData.start);
+// start.addEventListener('click', appData.start);
 
 start.addEventListener('click', function(){
-  salaryAmount.setAttribute('disabled', true);
-  incomeTitle.setAttribute('disabled', true);
-  incomeAmount.setAttribute('disabled', true);
-  nameExpenses.setAttribute('disabled', true);
-  expensesAmount.setAttribute('disabled', true);
-  additionalExpensesItem.setAttribute('disabled', true);
-  targetAmount.setAttribute('disabled', true);
-  additionalIncomeItem.setAttribute('disabled', true);
-  console.log(additionalIncomeItem);
-  // start.setAttribute('style', 'display: none');
+  if(+salaryAmount.value > 0 || salaryAmount.value !== ''){
+    salaryAmount.setAttribute('disabled', true);
+    incomeTitle.setAttribute('disabled', true);
+    incomeAmount.setAttribute('disabled', true);
+    nameExpenses.setAttribute('disabled', true);
+    expensesAmount.setAttribute('disabled', true);
+    additionalExpensesItem.setAttribute('disabled', true);
+    targetAmount.setAttribute('disabled', true);
+    additionalIncomeItem[0].setAttribute('disabled', true);
+    additionalIncomeItem[1].setAttribute('disabled', true);
+    cancel.style.display = 'block';
+    start.style.display = 'none';
+    appData.start();
+  }
+
 });
 
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
