@@ -1,4 +1,5 @@
 'use stricts';
+
 let start = document.querySelector('#start'),
   income = document.querySelector('.income'),
   buttonExpensesAdd = income.querySelector('button'),
@@ -9,9 +10,10 @@ let start = document.querySelector('#start'),
   value = document.querySelectorAll('[class $= -value]'),
   salaryAmount = document.querySelector('.salary-amount'),
   incomeItems = document.querySelectorAll('.income-items'),
-  // nameIncome = document.querySelector('.income-title'),
-  // sumIncome = document.querySelector('.income-amount'),
-  nameExpenses = document.querySelector('.expenses-title'),
+  incomeTitle = document.querySelector('input.income-title'),
+  incomeAmount = document.querySelector('.income-amount'),
+  nameExpenses = document.querySelector('input.expenses-title'),
+  expensesAmount = document.querySelector('.expenses-amount'),
   exepnsesItems = document.querySelectorAll('.expenses-items'),
   additionalExpensesItem = document.querySelector('.additional_expenses-item'),
   targetAmount = document.querySelector('.target-amount'),
@@ -20,17 +22,17 @@ let start = document.querySelector('#start'),
   periodAmount = document.querySelector('.period-amount');
 
 // console.log(start);
-// console.log(buttonExpensesAdd);
+// console.log(income);
 // console.log(buttonIncomeAdd);
 // console.log(buttonExpensesAdd);
 // console.log(checkbox);
 // console.log(additionalIncomeItem);
-console.log(value);
+// console.log(value);
 // console.log(salaryAmount);
-// console.log(nameIncome);
-// console.log(sumIncome);
+// console.log(incomeItems);
+// console.log(exepnsesItems);
 // console.log(nameExpenses);
-// // console.log(sumExpenses);
+// console.log(periodAmount);
 // console.log(additionalExpensesItem);
 // console.log(targetAmount);
 // console.log(deposirCheckbox);
@@ -57,6 +59,7 @@ let appData = {
       alert('Ошибка, поле "Месячный доход" должно быть заполенно!');
       return;
     }
+    
     appData.budget = +salaryAmount.value;
 
     appData.getExpenses();
@@ -216,6 +219,18 @@ let appData = {
 
 start.addEventListener('click', appData.start);
 
+start.addEventListener('click', function(){
+  salaryAmount.setAttribute('disabled', true);
+  incomeTitle.setAttribute('disabled', true);
+  incomeAmount.setAttribute('disabled', true);
+  nameExpenses.setAttribute('disabled', true);
+  expensesAmount.setAttribute('disabled', true);
+  additionalExpensesItem.setAttribute('disabled', true);
+  targetAmount.setAttribute('disabled', true);
+  additionalIncomeItem.setAttribute('disabled', true);
+  console.log(additionalIncomeItem);
+  // start.setAttribute('style', 'display: none');
+});
 
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
