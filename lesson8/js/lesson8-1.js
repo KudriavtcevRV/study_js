@@ -100,18 +100,20 @@ let appData = {
   submit: function(){
     if(+salaryAmount.value > 0 || salaryAmount.value !== ''){
       salaryAmount.setAttribute('disabled', true);
-      // incomeTitle.setAttribute('disabled', true);
-      // incomeAmount.setAttribute('disabled', true);
       nameExpenses.setAttribute('disabled', true);
       expensesAmount.setAttribute('disabled', true);
-      incomeTitle = document.querySelector('input.income-title');
-      incomeAmount = document.querySelector('.income-amount');
-      additionalExpensesItem = document.querySelector('.additional_expenses-item');
       for(let i = 0; i < incomeItems.length; i++){
-        incomeTitle[i].setAttribute('disabled', true);
-        incomeAmount[i].setAttribute('disabled', true);
+        incomeTitle = incomeItems[i].querySelector('input.income-title');
+        incomeAmount = incomeItems[i].querySelector('.income-amount');
+        incomeTitle.setAttribute('disabled', true);
+        incomeAmount.setAttribute('disabled', true);
       }
-      console.log(incomeItems);
+      for(let j = 0; j < exepnsesItems.length; j++){
+        nameExpenses = exepnsesItems[j].querySelector('input.expenses-title');
+        expensesAmount = exepnsesItems[j].querySelector('.expenses-amount');
+        nameExpenses.setAttribute('disabled', true);
+        expensesAmount.setAttribute('disabled', true);
+      }
       additionalExpensesItem.setAttribute('disabled', true);
       targetAmount.setAttribute('disabled', true);
       additionalIncomeItem[0].setAttribute('disabled', true);
@@ -161,7 +163,6 @@ let appData = {
     });
   },
   asking: function () {
-
     let addExpenses;
     do {
       addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
@@ -178,7 +179,6 @@ let appData = {
     let sum = 0;
     for (let key in appData.expenses) {
       sum += +appData.expenses[key];
-
     }
     return sum;
   },
