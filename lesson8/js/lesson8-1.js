@@ -62,6 +62,7 @@ let appData = {
     appData.getExpensesMonth();
     appData.getAddExpenses();
     appData.getAddIncome();
+    appData.сalculationPeriod();
     appData.getBudget();
 
 
