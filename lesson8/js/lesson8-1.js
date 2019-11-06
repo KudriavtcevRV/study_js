@@ -28,7 +28,7 @@ let start = document.querySelector('#start'),
 // console.log(buttonExpensesAdd);
 // console.log(checkbox);
 // console.log(additionalIncomeItem);
-console.log(value);
+// console.log(value);
 // console.log(salaryAmount);
 // console.log(incomeItems);
 // console.log(exepnsesItems);
@@ -62,7 +62,7 @@ let appData = {
     appData.getExpensesMonth();
     appData.getAddExpenses();
     appData.getAddIncome();
-    appData.calcPeriod();
+    // appData.calcPeriod();
     appData.getBudget();
 
 
@@ -122,6 +122,7 @@ let appData = {
       cancel.style.display = 'block';
       start.style.display = 'none';
       appData.start();
+      console.log(this);
     }
   },
   getExpenses: function(){
@@ -231,13 +232,12 @@ let appData = {
   
     
 };
-
-
+appData.calcPeriod();
 start.addEventListener('click', appData.submit);
 
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
-console.log(appData);
+// console.log(appData);
 
 // console.log('Расходы за месяц: ' + appData.getExpensesMonth());
 // appData.getStatusIncome();
