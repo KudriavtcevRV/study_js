@@ -28,11 +28,11 @@ let start = document.querySelector('#start'),
 // console.log(buttonExpensesAdd);
 // console.log(checkbox);
 // console.log(additionalIncomeItem);
-// console.log(value);
+console.log(value);
 // console.log(salaryAmount);
-console.log(incomeItems);
-console.log(exepnsesItems);
-console.log(incomeAmount);
+// console.log(incomeItems);
+// console.log(exepnsesItems);
+// console.log(incomeAmount);
 // console.log(periodAmount);
 // console.log(additionalExpensesItem);
 // console.log(targetAmount);
@@ -62,7 +62,7 @@ let appData = {
     appData.getExpensesMonth();
     appData.getAddExpenses();
     appData.getAddIncome();
-    appData.сalculationPeriod();
+    appData.calcPeriod();
     appData.getBudget();
 
 
@@ -76,10 +76,10 @@ let appData = {
     value[4].value = appData.addExpenses.join(', ');
     value[3].value = appData.addIncome.join(', ');
     value[6].value = Math.ceil(appData.getTargetMonth());
+    value[5].value = appData.calcPeriod();
     periodSelect.addEventListener('input', function(){
       value[5].value = appData.calcPeriod();
     });
- 
   },
   addExpensesBlock: function () {
     let cloneExpensesItem = exepnsesItems[0].cloneNode(true);
@@ -223,14 +223,12 @@ let appData = {
   },
 
   calcPeriod: function () {
-    return appData.budgetMonth * periodSelect.value;
-  },
-  
-  сalculationPeriod: function(){
     periodSelect.addEventListener('input', function(){
-    periodAmount.innerHTML = periodSelect.value;
+      periodAmount.innerHTML = periodSelect.value;
     });
-    }
+    return appData.budgetMonth * periodSelect.value;
+  }
+  
     
 };
 
