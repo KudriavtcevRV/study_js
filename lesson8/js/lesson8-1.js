@@ -30,14 +30,14 @@ let start = document.querySelector('#start'),
 // console.log(additionalIncomeItem);
 // console.log(value);
 // console.log(salaryAmount);
-// console.log(incomeItems);
-// console.log(exepnsesItems);
-// console.log(nameExpenses);
+console.log(incomeItems);
+console.log(exepnsesItems);
+console.log(incomeAmount);
 // console.log(periodAmount);
 // console.log(additionalExpensesItem);
 // console.log(targetAmount);
 // console.log(deposirCheckbox);
-// console.log(periodSelect);
+// console.log(expensesAmount);
 
 
 let appData = {
@@ -55,15 +55,6 @@ let appData = {
   budgetMonth: 0,
   expensesMonth: 0,
   start: function () {
-
-    // if (salaryAmount.value === '') {
-    //  start.setAttribute('disabled', true);
-    //   return;
-    // } if(+salaryAmount.value !== '' ){
-    //   start.setAttribute('disabled', false);
-    //   return;
-    // }
-    
     appData.budget = +salaryAmount.value;
 
     appData.getExpenses();
@@ -97,12 +88,37 @@ let appData = {
       buttonIncomeAdd.style.display = 'none';
     }
   },
+  
   addIncomeBlock: function(){
     let cloneIncomeItem = incomeItems[0].cloneNode(true);
     incomeItems[0].parentNode.insertBefore(cloneIncomeItem, buttonExpensesAdd);
     incomeItems = document.querySelectorAll('.income-items');
     if(incomeItems.length === 3){
       buttonExpensesAdd.style.display = 'none';
+    }
+  },
+  submit: function(){
+    if(+salaryAmount.value > 0 || salaryAmount.value !== ''){
+      salaryAmount.setAttribute('disabled', true);
+      // incomeTitle.setAttribute('disabled', true);
+      // incomeAmount.setAttribute('disabled', true);
+      nameExpenses.setAttribute('disabled', true);
+      expensesAmount.setAttribute('disabled', true);
+      incomeTitle = document.querySelector('input.income-title');
+      incomeAmount = document.querySelector('.income-amount');
+      additionalExpensesItem = document.querySelector('.additional_expenses-item');
+      for(let i = 0; i < incomeItems.length; i++){
+        incomeTitle[i].setAttribute('disabled', true);
+        incomeAmount[i].setAttribute('disabled', true);
+      }
+      console.log(incomeItems);
+      additionalExpensesItem.setAttribute('disabled', true);
+      targetAmount.setAttribute('disabled', true);
+      additionalIncomeItem[0].setAttribute('disabled', true);
+      additionalIncomeItem[1].setAttribute('disabled', true);
+      cancel.style.display = 'block';
+      start.style.display = 'none';
+      appData.start();
     }
   },
   getExpenses: function(){
@@ -135,6 +151,7 @@ let appData = {
       }
     });
   },
+
   getAddIncome: function(){
     additionalIncomeItem.forEach(function(item){
       let itemValue = item.value.trim();
@@ -216,30 +233,13 @@ let appData = {
     
 };
 
-// start.addEventListener('click', appData.start);
 
-start.addEventListener('click', function(){
-  if(+salaryAmount.value > 0 || salaryAmount.value !== ''){
-    salaryAmount.setAttribute('disabled', true);
-    incomeTitle.setAttribute('disabled', true);
-    incomeAmount.setAttribute('disabled', true);
-    nameExpenses.setAttribute('disabled', true);
-    expensesAmount.setAttribute('disabled', true);
-    additionalExpensesItem.setAttribute('disabled', true);
-    targetAmount.setAttribute('disabled', true);
-    additionalIncomeItem[0].setAttribute('disabled', true);
-    additionalIncomeItem[1].setAttribute('disabled', true);
-    cancel.style.display = 'block';
-    start.style.display = 'none';
-    appData.start();
-  }
-
-});
+start.addEventListener('click', appData.submit);
 
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
 console.log(appData);
-appData.сalculationPeriod();
+
 // console.log('Расходы за месяц: ' + appData.getExpensesMonth());
 // appData.getStatusIncome();
 // appData.targetMonth();
