@@ -1,6 +1,6 @@
 'use stricts';
 
-let start = document.querySelector('#start'),
+let submitButton = document.querySelector('#start'),
   cancel = document.querySelector('#cancel'),
   income = document.querySelector('.income'),
   buttonExpensesAdd = income.querySelector('button'),
@@ -38,9 +38,7 @@ let start = document.querySelector('#start'),
 // console.log(additionalExpensesItem);
 // console.log(targetAmount);
 // console.log(deposirCheckbox);
-console.log(inputVal);
-
-
+// console.log(inputVal);
 
 let appData = {
   budget: 0,
@@ -69,7 +67,8 @@ let appData = {
 
 
     this.showResult();
-    appData.reset();
+    this.reset();
+    console.log('start: ', this);
   },
   showResult: function(){
     value[0].value = this.budgetMonth;
@@ -78,10 +77,12 @@ let appData = {
     value[4].value = this.addExpenses.join(', ');
     value[3].value = this.addIncome.join(', ');
     value[6].value = Math.ceil(this.getTargetMonth());
-    value[5].value = this.calcPeriod();
+    // value[5].value = appData.calcPeriod();
     periodSelect.addEventListener('input', function(){
       value[5].value = appData.calcPeriod();
     });
+
+    console.log('showResult: ', this);
   },
   addExpensesBlock: function () {
     let cloneExpensesItem = exepnsesItems[0].cloneNode(true);
@@ -122,19 +123,23 @@ let appData = {
       additionalIncomeItem[0].setAttribute('disabled', true);
       additionalIncomeItem[1].setAttribute('disabled', true);
       cancel.style.display = 'block';
-      start.style.display = 'none';
+      submitButton.style.display = 'none';
       appData.start();
+      console.log('submit: ', this);
     }
   },
   reset: function(){
     cancel.addEventListener('click', function(){
       let reset = document.querySelectorAll('input[type = "text"]');
-      reset.forEach(function(index){
-        index.value = '';
-        index.removeAttribute('disabled');
+      let resetSlider = document.querySelector('input[type = "range"]');
+      reset.forEach(function(item){
+        item.value = '';
+        item.removeAttribute('disabled');
         });
+        resetSlider.value = '1';
+        periodAmount.innerHTML = resetSlider.value;
         cancel.style.display = 'none';
-        start.style.display = 'block';
+        submitButton.style.display = 'block';
     });
   },
   getExpenses: function(){
@@ -243,13 +248,14 @@ let appData = {
   
 
 };
+let hardbind = appData.submit.bind(appData);
 
-start.addEventListener('click', appData.submit);
+submitButton.addEventListener('click', hardbind);
 
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
 // console.log(appData);
-
+periodAmount.innerHTML = periodSelect.value;
 // console.log('Расходы за месяц: ' + appData.getExpensesMonth());
 // appData.getStatusIncome();
 // appData.targetMonth();
