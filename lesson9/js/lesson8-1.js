@@ -254,12 +254,18 @@ let appData = {
   },
 
   calcPeriod: function () {
-    slider();
+    periodSelect.addEventListener('input', function(){
+      periodAmount.innerHTML = periodSelect.value;
+    });
     return this.budgetMonth * periodSelect.value;
   }
   
 
 };
+periodSelect.addEventListener('input', function(){
+  periodAmount.innerHTML = periodSelect.value;
+});
+
 let hardbind = appData.submit.bind(appData);
 
 submitButton.addEventListener('click', hardbind);
@@ -267,12 +273,9 @@ submitButton.addEventListener('click', hardbind);
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
 // console.log(appData);
-let slider = function(){
-  periodSelect.addEventListener('input', function(){
-    periodAmount.innerHTML = periodSelect.value;
-  });
-};
-slider();
+
+  
+
 // console.log('Расходы за месяц: ' + appData.getExpensesMonth());
 // appData.getStatusIncome();
 // appData.targetMonth();
