@@ -77,7 +77,7 @@ let appData = {
     value[4].value = this.addExpenses.join(', ');
     value[3].value = this.addIncome.join(', ');
     value[6].value = Math.ceil(this.getTargetMonth());
-    // value[5].value = appData.calcPeriod();
+    value[5].value = appData.calcPeriod();
     periodSelect.addEventListener('input', function(){
       value[5].value = appData.calcPeriod();
     });
@@ -138,6 +138,20 @@ let appData = {
         });
         resetSlider.value = '1';
         periodAmount.innerHTML = resetSlider.value;
+        appData.calcPeriod = 0;
+        if (exepnsesItems.length > 1) {
+          // cloneIncomeItem.style.display = 'none';
+          for(let i = 1; i < exepnsesItems.length; i++ ){
+            exepnsesItems[i].style.display = 'none';
+            buttonExpensesAdd.style.display = 'block';
+          }
+        }
+        if(incomeItems.length > 1){
+          for(let i = 1; i < incomeItems.length; i++ ){
+            incomeItems[i].style.display = 'none';
+            buttonIncomeAdd.style.display = 'block';
+          }
+        }
         cancel.style.display = 'none';
         submitButton.style.display = 'block';
     });
@@ -240,9 +254,7 @@ let appData = {
   },
 
   calcPeriod: function () {
-    periodSelect.addEventListener('input', function(){
-      periodAmount.innerHTML = periodSelect.value;
-    });
+    slider();
     return this.budgetMonth * periodSelect.value;
   }
   
@@ -255,7 +267,12 @@ submitButton.addEventListener('click', hardbind);
 buttonExpensesAdd.addEventListener('click', appData.addIncomeBlock);
 buttonIncomeAdd.addEventListener('click', appData.addExpensesBlock);
 // console.log(appData);
-periodAmount.innerHTML = periodSelect.value;
+let slider = function(){
+  periodSelect.addEventListener('input', function(){
+    periodAmount.innerHTML = periodSelect.value;
+  });
+};
+slider();
 // console.log('Расходы за месяц: ' + appData.getExpensesMonth());
 // appData.getStatusIncome();
 // appData.targetMonth();
