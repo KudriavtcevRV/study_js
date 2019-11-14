@@ -221,6 +221,20 @@ function reset() {
     }
   });
   appData.budgetMonth = 0;
+  appData.budget = 0;
+  appData.income = {};
+  appData.incomeMonth = 0;
+  appData.addIncome = [];
+  appData.expenses = {};
+  appData.addExpenses = [];
+  appData.deposit = false;
+  appData.percentDeposit = 0;
+  appData.moneyDeposit = 0;
+  appData.period = 3;
+  appData.budgetDay = 0;
+  appData.budgetMonth = 0;
+  appData.expensesMonth = 0;
+
   cancel.style.display = 'none';
   submitButton.style.display = 'block';
 
