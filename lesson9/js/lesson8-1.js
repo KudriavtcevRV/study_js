@@ -220,7 +220,6 @@ function reset() {
       buttonExpensesAdd.style.display = 'block';
     }
   });
-  appData.budgetMonth = 0;
   appData.budget = 0;
   appData.income = {};
   appData.incomeMonth = 0;
@@ -230,7 +229,7 @@ function reset() {
   appData.deposit = false;
   appData.percentDeposit = 0;
   appData.moneyDeposit = 0;
-  appData.period = 3;
+  appData.period = 0;
   appData.budgetDay = 0;
   appData.budgetMonth = 0;
   appData.expensesMonth = 0;
