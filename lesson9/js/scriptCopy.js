@@ -1,4 +1,4 @@
-'use stricts';
+'use strict';
 
 let submitButton = document.querySelector('#start'),
   cancel = document.querySelector('#cancel'),
@@ -50,7 +50,7 @@ let appData = {
   deposit: false,
   percentDeposit: 0,
   moneyDeposit: 0,
-  period: 3,
+  period: 0,
   budgetDay: 0,
   budgetMonth: 0,
   expensesMonth: 0,
