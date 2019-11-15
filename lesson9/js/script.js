@@ -40,7 +40,9 @@ const AppData = function () {
 };
 
 AppData.prototype.start = function () {
-
+if(salaryAmount.value === ''){
+  return;
+}
   this.budget = +salaryAmount.value;
   this.disabledImpuls();
   this.getExpenses();
