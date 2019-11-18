@@ -1,9 +1,10 @@
-function DomElement(selector, height, width, bg, fontSize) {
+function DomElement(selector, height, width, bg, fontSize, display ) {
   this.selector = selector;
   this.height = height;
   this.width = width;
   this.bg = bg;
   this.fontSize = fontSize;
+  this.display = display;
 }
 DomElement.prototype.createSelector = function () {
   if (this.selector.startsWith('.')) {
@@ -21,8 +22,9 @@ DomElement.prototype.createSelector = function () {
   width: ${this.width};
   background: ${this.bg};
   font-size: ${this.fontSize};
+  display: ${this.display};
   `;
 };
-let DomElement2 = new DomElement('#red', '100px', '150px', 'red', '14px');
-console.log(DomElement2);
+let DomElement2 = new DomElement('.red', '100px', '150px', 'blue', '14px', 'inline-block');
+console.dir(DomElement2);
 DomElement2.createSelector();
